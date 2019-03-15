@@ -33,6 +33,12 @@ add_library(${PROJECT_NAME}
   src/model.cpp
   src/srdf_writer.cpp
 )
+
+if(WIN32)
+  if(CMAKE_BUILD_TYPE STREQUAL Debug)
+    set(TinyXML_LIBRARIES ${TinyXML_DEBUG_LIBRARIES})
+  endif()
+endif()
 target_link_libraries(${PROJECT_NAME} ${TinyXML_LIBRARIES} ${catkin_LIBRARIES} ${console_bridge_LIBRARIES} ${urdfdom_headers_LIBRARIES})
 
 
