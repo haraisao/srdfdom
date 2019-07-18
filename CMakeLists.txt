@@ -54,6 +54,9 @@ install(PROGRAMS
   scripts/display_srdf
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+if(WIN32)
+  install_python_cli(display_srdf)
+endif()
 
 if(CATKIN_ENABLE_TESTING)
   find_package(rostest REQUIRED)
